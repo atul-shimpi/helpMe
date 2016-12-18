@@ -8,13 +8,11 @@
 /.bundle
 
 # Ignore all logfiles and tempfiles.
-/log/*
-/tmp/*
-!/log/.keep
-!/tmp/.keep
+/api/log/*
+/api/tmp/*
+!/api/log/.keep
+!/api/tmp/.keep
 
 # Ignore Byebug command history file.
-.byebug_history
-.idea/*
-/log/*
-/tmp/*
+/api/.byebug_history
+/api/.idea/*
