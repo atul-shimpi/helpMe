@@ -6,8 +6,8 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "build": "webpack",
-    "startx": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 3000",
-    "start": "sh start.sh"
+    "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 3000",
+    "startx": "sh start.sh"
   },
   "engines": {
     "node": "4.6.0"
@@ -21,7 +21,7 @@
     "angular-ui-router": "^0.3.1",
     "autoprefixer": "^6.5.0",
     "babel-polyfill": "^6.16.0",
-    "bootstrap": "^4.0.0-alpha.2",
+    "bootstrap": "^3.3.7",
     "bootstrap-sass": "^3.3.7",
     "font-awesome": "^4.6.3",
     "imports-loader": "^0.6.5",
