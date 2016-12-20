@@ -4,7 +4,7 @@
   "description": "Builds dashboard application",
   "main": "src/js/app.js",
   "scripts": {    
-    "test": "node ./node_modules/protractor/bin/protractor ./test/e2e/conf.js",    
+    "test": "node ./node_modules/protractor/bin/protractor ./tests/e2e/conf.js",    
     "build": "webpack",
     "start": "node ./node_modules/webpack-dev-server/bin/webpack-dev-server.js --host 0.0.0.0 --port 3001",
     "startx": "sh start.sh"
