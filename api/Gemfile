@@ -30,7 +30,7 @@ gem 'rspec-autotest'
 
 gem 'devise_token_auth'
 gem 'omniauth'
-
+gem 'sqlite3'
 # Rack-CORS
 gem 'rack-cors', :require => 'rack/cors'
 group :development, :test do

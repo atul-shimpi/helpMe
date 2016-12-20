@@ -20,20 +20,6 @@ function LoginController(
     });
   };   
   
-  $scope.success = function(msg) {
-    alert(msg)
-  };
-  
-  $scope.fail = function(err) {
-    alert(err)
-  };
-  
-  // authentication failed
-  $scope.$on('auth:login-error', function(ev, reason) {
-    alert('Authentication failed');
-    $scope.error = reason.errors[0];
-  });
-  
 };
 
 export {LoginController};
