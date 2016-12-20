@@ -22,22 +22,8 @@ app.run(['$rootScope',
   '$location',
   '$auth',
   '$sessionStorage',
-  function($rootScope, $location, $auth, $sessionStorage) {
-  
-  $rootScope.user = $sessionStorage.user || {};
-   
-  // Got Login successful alert
-  $rootScope.$on('auth:login-success', function(ev, user) {  
-    $sessionStorage.user = user;
-    $rootScope.user = $sessionStorage.user;
-    $location.path('/tickets');   
-  })
-     
-  // Got login failed alert
-  $rootScope.$on('auth:login-error', function(ev, reason) {
-    $rootScope.loginFailed = true;
-    $rootScope.loginErr = reason.errors.join();
-  });
+  function($rootScope, $location, $auth, $sessionStorage) {  
+  $rootScope.user = $sessionStorage.user || {};  
   
   // User clicked Logout link
   $rootScope.onClickLogoutBtn = function() { 
@@ -53,7 +39,7 @@ app.run(['$rootScope',
     delete $sessionStorage.user;
     delete $rootScope.user;
     $location.path("/");
-  })
+  })   
   
 }]);
 
