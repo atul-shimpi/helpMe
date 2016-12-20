@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::API  
   include DeviseTokenAuth::Concerns::SetUserByToken
-  before_filter :configure_permitted_parameters, if: :devise_controller?
+  before_action :configure_permitted_parameters, if: :devise_controller?
   before_action :authenticate_user!
   skip_before_action :authenticate_user!, if: :devise_controller?
   
