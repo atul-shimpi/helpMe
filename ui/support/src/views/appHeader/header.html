@@ -1,10 +1,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
-      <span class="navbar-brand" style="color: RGB(2,197,76);">helpMe.com</span>
+      <span class="navbar-brand" style="font-size: 24px;color: RGB(2,197,76);">helpMe.com</span>
     </div>
     
-    <ul class="nav navbar-nav">
+    <ul class="nav navbar-nav" ng-show="user.signedIn">
       <li class="active"><a href="#">Home</a></li>
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage
@@ -16,16 +16,15 @@
       </li>
     </ul>
     
-    <ul class="nav navbar-nav navbar-right">
-      <li class="dropdown">
-      
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">
-          Atul Shimpi
+    <ul class="nav navbar-nav navbar-right" ng-show="user.signedIn">
+      <li class="dropdown">      
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">
+          {{user.name}}
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Edit Porfile</a></li>
+          <li><a href="#">Edit Profile</a></li>
           <li class="divider"></li>
-          <li><a href="#">Sign Out</a></li>
+          <li><a href="" ng-click="onClickLogoutBtn()">Sign Out</a></li>
         </ul>
       </li>
     </ul>

@@ -1,15 +1,33 @@
-export default  function routeConfig($stateProvider, $urlRouterProvider) {
+export default function routeConfig($stateProvider,
+                                    $urlRouterProvider,
+                                    $authProvider) {
+  // configure routes
   $urlRouterProvider.otherwise('/');  
 	
   $stateProvider
-    .state('home', {
+    .state('login', {
         url: '/',
-        templateUrl: 'src/views/home/home.html',
-		    controller: 'HomeController'
-    });	  
+        templateUrl: 'src/views/login/login.html',
+		    controller: 'LoginController'
+    })
+    .state('tickets', {
+        url: '/tickets',
+        templateUrl: 'src/views/tickets/CRUD.html',
+		    controller: 'TicketsController'
+    });
+      
+  // configure Angular token auth  
+  $authProvider.configure({
+    apiUrl: 'http://localhost:3000',
+    validateOnPageLoad: false,
+  });
+       
 }; 
     
 routeConfig.$inject = [
   '$stateProvider',
-  '$urlRouterProvider'
+  '$urlRouterProvider',
+  '$authProvider'
 ];    
+
+
