@@ -17,6 +17,7 @@ function LoginController(
  
   // User clicked on Login button
   $scope.onClickLoginBtn = function() {
+    $scope.loginInProgress = true;
     $auth.submitLogin({
       email: $scope.loginForm.email,
       password: $scope.loginForm.password
@@ -26,6 +27,7 @@ function LoginController(
   
   // Got Login successful alert
   $scope.$on('auth:login-success', function(ev, user) {  
+    $scope.loginInProgress = false;
     $sessionStorage.user = user;
     $rootScope.user = $sessionStorage.user;
     $location.path('/tickets');   
@@ -33,6 +35,7 @@ function LoginController(
      
   // Got login failed alert
   $scope.$on('auth:login-error', function(ev, reason) {
+    $scope.loginInProgress = false;
     $scope.loginFailed = true;
     $scope.loginErr = reason.errors.join();
   });

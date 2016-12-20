@@ -15,6 +15,11 @@ export default function routeConfig($stateProvider,
         templateUrl: 'src/views/register/register.html',
 		    controller: 'RegisterController'
     })
+    .state('profile', {
+        url: '/profile',
+        templateUrl: 'src/views/profile/profile.html',
+		    controller: 'ProfileController'
+    })
     .state('tickets', {
         url: '/tickets',
         templateUrl: 'src/views/tickets/CRUD.html',
