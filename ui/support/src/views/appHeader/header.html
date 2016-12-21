@@ -5,13 +5,13 @@
     </div>
     
     <ul class="nav navbar-nav" ng-show="user.signedIn">
-      <li class="active"><a href="#">Home</a></li>
+      <li ng-classx="{active: isTickets}"><a ui-sref="tickets">Tickets</a></li>
       <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown" href="#">Manage
+        <a class="dropdown-toggle" data-toggle="dropdown" href="">Manage
         <span class="caret"></span></a>
         <ul class="dropdown-menu">
-          <li><a href="#">Categories</a></li>
-          <li><a href="#">Users</a></li>
+          <li><a ui-sref="ticketTypes">Ticket Categories</a></li>
+          <li><a ui-sref="users">Users</a></li>
         </ul>
       </li>
     </ul>
@@ -20,7 +20,7 @@
       <li class="dropdown">      
         <a class="dropdown-toggle" data-toggle="dropdown" href="">
           {{user.name}}
-        <span class="caret"></span></a>
+         <span class="caret"></span></a>
         <ul class="dropdown-menu">
           <li><a ui-sref="profile">Edit Profile</a></li>
           <li><a href="" ng-click="clickDeleteAcccountBtn()">Delete Account</a></li>

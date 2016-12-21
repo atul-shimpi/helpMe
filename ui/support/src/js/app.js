@@ -16,13 +16,49 @@ var app = angular.module('weatherApp', [
   directives.name
 ]); 
 
+var SERVER = "http://localhost:3000";
+var VER = "/api/v1";
+
+app.constant("API", {
+  "SERVER_URL": SERVER,
+  "CATEGORIES": SERVER + VER + "/ticket_types",
+  "USERS": SERVER + VER + "/users",
+  "TICKETS": SERVER + VER + "/tickets"
+})
+    
 app.config(statesAndRoutes);
 
+app.factory('authHttpResponseInterceptor',['$q','$location',function($q,$location){
+    return {
+        response: function(response){
+            if (response.status === 401) {
+                console.log("Response 401");
+            }
+            return response || $q.when(response);
+        },
+        responseError: function(rejection) {
+            if (rejection.status === 401) {            
+                console.log("Response Error 401",rejection);
+                $location.path('/').search('returnTo', $location.path());
+            }
+            return $q.reject(rejection);
+        }
+    }
+}])
+app.config(['$httpProvider',function($httpProvider) {
+    //Http Intercpetor to check auth failures for xhr requests
+    $httpProvider.interceptors.push('authHttpResponseInterceptor');
+}]);
+   
 app.run(['$rootScope',
   '$location',
   '$auth',
   '$sessionStorage',
   function($rootScope, $location, $auth, $sessionStorage) {  
+ 
+  
+  // hightlight Tickets menu
+  $rootScope.isTickets = true;  
   $rootScope.user = $sessionStorage.user || {};  
   
   // user clicked delete account menu

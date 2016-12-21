@@ -1,1 +1,29 @@
 <page-title title="Tickets"></page-title>
+<ul class="nav navbar-nav crud">
+  <li><a href="#">New</a></li>
+  <li><a href="#">Export to PDF</a></li>
+</ul>  
+
+<table class="table table-striped">      
+  <tr>
+     <th>Category</th>
+     <th>Description</th>
+     <th>Owner</th>
+     <th>Assign To</th>
+     <th>Create on</th>
+     <th>Status</th>
+     <th style="width: 30px;"></th>
+     <th style="width: 30px;"></th>
+  </tr>   
+
+  <tr ng-repeat="ticket in tickets track by $index">
+     <td>{{ticket.ticket_type.type_of_ticket}}</td>
+     <td>{{ticket.description}}</td>
+     <td>{{ticket.owner.name}}</td>
+     <td>{{ticket.assignee.name}}</td>
+     <td>{{ticket.created_at | date:'dd-MMM-yyyy, H:mm'}}</td>
+     <td>{{ticket.status}}</td>
+     <td><a href="#"><span class="fa fa-pencil-square-o" aria-hidden="true"></span></a></td>
+     <td><a href="#"><span class="fa fa-trash-o" aria-hidden="true"></span></a></td>
+  </tr>
+</table>

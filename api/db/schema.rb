@@ -10,7 +10,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161218032216) do
+ActiveRecord::Schema.define(version: 20161221081056) do
+
+  create_table "ticket_types", force: :cascade do |t|
+    t.string   "type_of_ticket"
+    t.datetime "created_at",     null: false
+    t.datetime "updated_at",     null: false
+  end
+
+  create_table "tickets", force: :cascade do |t|
+    t.integer  "owner_id"
+    t.integer  "assignee_id"
+    t.integer  "ticket_type_id"
+    t.string   "description"
+    t.integer  "status",         default: 0
+    t.integer  "integer",        default: 0
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+    t.index ["assignee_id"], name: "index_tickets_on_assignee_id"
+    t.index ["owner_id"], name: "index_tickets_on_owner_id"
+    t.index ["ticket_type_id"], name: "index_tickets_on_ticket_type_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "provider",               default: "email", null: false
@@ -36,6 +56,7 @@ ActiveRecord::Schema.define(version: 20161218032216) do
     t.datetime "created_at",                               null: false
     t.datetime "updated_at",                               null: false
     t.string   "username"
+    t.integer  "role",                   default: 2
     t.index ["email"], name: "index_users_on_email"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
     t.index ["uid", "provider"], name: "index_users_on_uid_and_provider", unique: true

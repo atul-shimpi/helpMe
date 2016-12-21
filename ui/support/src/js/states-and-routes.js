@@ -1,6 +1,9 @@
 export default function routeConfig($stateProvider,
                                     $urlRouterProvider,
-                                    $authProvider) {
+                                    $authProvider,
+                                    $httpProvider) {
+  
+  
   // configure routes
   $urlRouterProvider.otherwise('/');  
 	
@@ -15,10 +18,20 @@ export default function routeConfig($stateProvider,
         templateUrl: 'src/views/register/register.html',
 		    controller: 'RegisterController'
     })
+    .state('users', {
+        url: '/users',
+        templateUrl: 'src/views/users/CRUD.html',
+		    controller: 'UsersController'
+    })
     .state('profile', {
         url: '/profile',
         templateUrl: 'src/views/profile/profile.html',
 		    controller: 'ProfileController'
+    })
+    .state('ticketTypes', {
+        url: '/ticket/types',
+        templateUrl: 'src/views/ticketTypes/CRUD.html',
+		    controller: 'TicketTypesController'
     })
     .state('tickets', {
         url: '/tickets',
@@ -37,7 +50,8 @@ export default function routeConfig($stateProvider,
 routeConfig.$inject = [
   '$stateProvider',
   '$urlRouterProvider',
-  '$authProvider'
+  '$authProvider',
+  '$httpProvider'
 ];    
 
 

@@ -4,6 +4,6 @@ class User < ActiveRecord::Base
           :recoverable, :rememberable, :trackable, :validatable,
           :omniauthable
   include DeviseTokenAuth::Concerns::User
-
-
+ 
+  enum role: [:admin, :engineer, :customer]
 end

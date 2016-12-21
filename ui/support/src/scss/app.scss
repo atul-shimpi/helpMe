@@ -7,4 +7,11 @@
    margin: 0px;
 }
 
-ul.nav a:hover { background-color: RGB(92, 184, 92) !important; }
+ul.nav a:hover { 
+  background-color: RGB(92, 184, 92) !important; 
+}
+
+ul.crud a:hover {
+  background-color: white !important;
+  color: grey;
+}

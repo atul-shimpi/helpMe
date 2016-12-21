@@ -1,4 +1,4 @@
-function TicketsController(
+function UsersController(
   API,
   $scope,
   $state,
@@ -12,17 +12,16 @@ function TicketsController(
   }
   
   function loadData() {
-    $http.get(API.TICKETS)
+    $http.get(API.USERS)
     .then(gotData, fail);
   }
   
   function gotData(response) {
-    $scope.tickets = response.data;
+    $scope.users = response.data;
   }
   
   function fail(err) {
-    
   }
 };
 
-export {TicketsController};
+export {UsersController};
